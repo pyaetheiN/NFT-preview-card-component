@@ -1,0 +1,128 @@
+@import "_config.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 18px;
+    font-family: 'Outfit', sans-serif;
+    background-color: $mainbg;
+}
+.flex{
+    display: flex;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+main{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    padding: 2rem 0;
+}
+.card{
+    background-color: $cardbg;
+    padding: 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+
+    &__img{
+        max-width: 300px;
+        border-radius: 8px;
+    }
+    // ======== view icon hover ======== //
+    &__preview{
+        position: relative;
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 4px; //fixing overflow
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            // added background color to prevent view icon transitioning
+        }
+        &:hover::after{
+            background: rgba($cyan, 0.6) url("../images/icon-view.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    // ================================= //
+    &__title{
+        font-size: 1.2em;
+        font-weight: 900;
+
+        a{
+            color: $white;
+            transition: 0.3s;
+
+            &:hover{
+                color: $cyan;
+            }
+        }
+    }
+    &__desc{
+        max-width: 300px;
+        font-size: 0.975em;
+        color: $softblue;
+        font-weight: 300;
+    }
+    &__data{
+        justify-content: space-between;
+        align-items: center;
+        color: $cyan;
+    }
+    &__price-container,
+    &__time-container{
+        align-items: center;
+        column-gap: 0.4rem;
+    }
+    &__price,
+    &__time{
+        font-size: 0.875em;
+    }
+    &__price{
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    hr{
+        border: none;
+        background: $line;
+        height: 1px;
+    }
+    &__creator{
+        align-items: center;
+        column-gap: 1rem;
+    }
+    &__creator-img{
+        width: 35px;
+        border: 1px solid $white;
+        border-radius: 50%;
+    }
+    &__creator-name{
+        color: $softblue;
+        font-weight: 400;
+        font-size: 0.875em;
+    }
+    .white{
+        color: $white;
+        transition: 0.3s;
+
+        &:hover{
+            color: $softblue;
+        }
+    }
+}
+
